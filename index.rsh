@@ -30,7 +30,7 @@ const LISTEDOBJECT = Object({
 });
 
 export const main = Reach.App(() => {
-  setOptions({ ALGOExitMode: "DeleteAndCloseOutASAs", connectors: [ALGO] });
+  setOptions({ connectors: [ETH] });
 
   const D = Participant("Deployer", {
     token: Token,
