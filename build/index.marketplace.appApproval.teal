@@ -1,0 +1,826 @@
+#pragma version 8
+// resource: R_Txn
+txn ApplicationID
+bz alloc
+byte base64()
+app_global_get
+dup
+int 0
+extract_uint64
+store 1 // GV_currentStep :: UInt
+int 8
+extract_uint64
+store 2 // GV_currentTime :: UInt
+byte base64(AA==)
+app_global_get
+byte base64(AQ==)
+app_global_get
+concat
+preamble:
+pushbytess base64(AsmHpw==) base64(FuTo7Q==) base64(M+XuIQ==) base64(N0fKpQ==) base64(O8ouOQ==) base64(PMsqpQ==) base64(RPhLIg==) base64(S2fRDQ==) base64(sbuwqA==) base64(0hIcwA==) base64(1JDVnw==) base64(39kjKA==)
+txna ApplicationArgs 0
+match meta___byte_32__niQ61IiQNtIpAucs6_KCK6ZgEgigFU5N5bZMvs6e9qg_ balance___uint64Xqm1v5_4ak68Y_c_1sKRyuTCxNgsknAGuPx5pKiRdIA_ stopContract__byOqiRTZeJ7KYOfKs3ILrnZXX4rBFJZ_bFxeiE8wpe7jE_ _reachp_3 tracker___uint64V84FTHjrPXhGDG9cDUhOEYPLf7D5ZlKlgiDibgUsHck_ halt__void4NgR4Ybkk_p9THAAGm3x_lYv38HaTzOzmW6ULlLSkXs_ halted__byteyJoHnOfq7bztQWQ0jDxWnrorBuw_dLysB1my2xEadKE_ token__uint64uya6CfUBrbRm0uCFdBQkWnkXu5jKpnjl2nKxjOCeW5M_ owner__addressYgr7y4BrUESHP0r0K1S9jEdSUmlYuVwvGyuSylzNEkY_ SecondaryBuy_uin5URuYUcXS6vOqI55VIdcHUZybUUbj71PgMepthaeB2U_ _reachp_0 _reachp_1
+errl:
+err
+SecondaryBuy_uin5URuYUcXS6vOqI55VIdcHUZybUUbj71PgMepthaeB2U_:
+txna ApplicationArgs 1
+btoi
+store 11 // v4153
+_reacha_SecondaryBuy:
+int 8
+bzero
+byte base64(AA==)
+load 11 // v4153
+itob
+concat
+concat
+store 11 // v4174
+_reachi_3:
+int 4
+load 1 // GV_currentStep :: UInt
+==
+assert
+callsub l2_LF_svsLoad_4
+load 11 // v4174
+int 0
+extract_uint64
+store 12 // v4173
+load 11 // v4174
+extract 8 9
+store 13 // .fork2266.msg/3043
+byte base64(VOdirA==)
+load 12 // v4173
+itob
+concat
+load 13 // .fork2266.msg/3043
+concat
+log // up to 21 bytes
+// ^ log: "_reach_e3" [v4173,.fork2266.msg/3043] "_reach_e3(uint64,(byte,byte[8]))"
+load 12 // v4173
+callsub l3_LF_timeCheck
+load 13 // .fork2266.msg/3043
+int 0
+getbyte
+switch l8_SecondaryBuy0_2266 l9_halt0_2266 l10_stopContract0_2266
+b errl
+_api_SecondaryBuy3:
+load 13 // .fork2266.msg/3043
+int 1
+extract_uint64
+store 11 // numberOfTokens/3051
+load 24 // price/2916
+load 11 // numberOfTokens/3051
+*
+dup
+store 29 // v3052
+callsub l11_LF_checkTxn_False
+// ^ CheckPay
+// at ./index.rsh:242:21:dot
+load 15 // tokenInfos/2957
+extract 0 17
+dup
+store 28 // tokInfo/3084
+int 0
+extract_uint64
+store 13 // v3085
+load 11 // numberOfTokens/3051
+load 13 // v3085
+<=
+assert
+// ^ Claim
+// at reach standard library:57:5:application
+// at ./index.rsh:270:14:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index.rsh:269:27:application call to [unknown function] (defined at: ./index.rsh:269:27:function exp)
+byte base64()
+store 12 // v3096
+byte base64(AAAAAAAADBg=)
+load 12 // v3096
+concat
+log // up to 8 bytes
+load 12 // v3096
+store 4 // GV_apiRet :: Null
+load 29 // v3052
+// resource: R_Account
+load 27 // Deployer/2913
+callsub l12_LF_makeTxn_False_False_False_True
+load 11 // numberOfTokens/3051
+// resource: R_Asset
+load 25 // token/2915
+// resource: R_Account
+txn Sender
+callsub l4_LF_makeTxn_False_False_True_True
+int 1
+load 18 // tokensInContract/2948
+load 11 // numberOfTokens/3051
+-
+load 17 // tokensOutOfContract/2950
+load 11 // numberOfTokens/3051
++
+global Round
+load 15 // tokenInfos/2957
+load 28 // tokInfo/3084
+load 13 // v3085
+load 11 // numberOfTokens/3051
+-
+itob
+replace2 0
+replace2 0
+load 14 // netBalance/2958
+load 29 // v3052
++
+load 29 // v3052
+-
+store 14 // netBalance/2958
+store 15 // tokenInfos/2957
+store 16 // thisConsensusTime/2951
+store 17 // tokensOutOfContract/2950
+store 18 // tokensInContract/2948
+store 20 // contractShouldContinue/2946
+_reachl_2:
+load 20 // contractShouldContinue/2946
+bz l13_ifF
+l14_LF_svsDump_4:
+load 27 // Deployer/2913
+load 26 // totalSupply/2914
+itob
+concat
+load 25 // token/2915
+itob
+concat
+load 24 // price/2916
+itob
+concat
+load 23 // decimals/2917
+itob
+concat
+load 22 // name/2918
+concat
+load 21 // symbol/2919
+concat
+load 19 // halt/2947
+itob
+substring 7 8
+concat
+load 18 // tokensInContract/2948
+itob
+concat
+load 17 // tokensOutOfContract/2950
+itob
+concat
+load 15 // tokenInfos/2957
+concat
+load 14 // netBalance/2958
+itob
+concat
+int 4
+global Round
+updateStateNoOp:
+store 2 // GV_currentTime :: UInt
+store 1 // GV_currentStep :: UInt
+byte base64(AA==)
+dig 1
+extract 0 127
+app_global_put
+byte base64(AQ==)
+swap
+extract 127 19
+app_global_put
+byte base64()
+load 1 // GV_currentStep :: UInt
+itob
+load 2 // GV_currentTime :: UInt
+itob
+concat
+app_global_put
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+callsub l16_LF_updateMbr
+updateState:
+load 3 // GV_wasntMeth :: Bool
+bnz done
+apiReturn_noCheck:
+byte base64(FR98dQ==)
+load 4 // GV_apiRet :: Null
+concat
+log // up to 76 bytes
+done:
+int 1
+return
+_api_halt3:
+txn Sender
+load 27 // Deployer/2913
+==
+assert
+// ^ Claim: You are not Owner
+// at reach standard library:57:5:application
+// at ./index.rsh:284:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+// at ./index.rsh:283:22:application call to [unknown function] (defined at: ./index.rsh:283:22:function exp)
+// at ./index.rsh:242:21:application call to [unknown function] (defined at: ./index.rsh:283:22:function exp)
+// at ./index.rsh:242:21:application call to [unknown function] (defined at: ./index.rsh:242:21:function exp)
+// at ./index.rsh:258:14:application call to [unknown function] (defined at: ./index.rsh:258:14:function exp)
+byte base64()
+store 11 // v3216
+byte base64(AAAAAAAADJA=)
+load 11 // v3216
+concat
+log // up to 8 bytes
+load 11 // v3216
+store 4 // GV_apiRet :: Null
+int 1
+load 19 // halt/2947
+!
+global Round
+store 16 // thisConsensusTime/2951
+store 19 // halt/2947
+store 20 // contractShouldContinue/2946
+b _reachl_2
+_api_stopContract3:
+int 1
+store 11 // v3318
+byte base64(AAAAAAAADPY=)
+load 11 // v3318
+itob
+substring 7 8
+concat
+log // up to 9 bytes
+load 11 // v3318
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+int 0
+global Round
+store 16 // thisConsensusTime/2951
+store 20 // contractShouldContinue/2946
+b _reachl_2
+_reacha_balance:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:205:12:property binding
+callsub l2_LF_svsLoad_4
+load 18 // tokensInContract/2948
+itob
+store 4 // GV_apiRet :: Null
+apiReturn_check:
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+b apiReturn_noCheck
+_reacha_halt:
+byte base64(AAAAAAAAAAABAAAAAAAAAAA=)
+store 11 // v4174
+b _reachi_3
+_reacha_halted:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:209:11:property binding
+callsub l2_LF_svsLoad_4
+load 19 // halt/2947
+itob
+substring 7 8
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+_reacha_meta:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:204:9:property binding
+callsub l2_LF_svsLoad_4
+load 22 // name/2918
+load 21 // symbol/2919
+concat
+load 23 // decimals/2917
+itob
+concat
+load 26 // totalSupply/2914
+itob
+concat
+load 24 // price/2916
+itob
+concat
+load 25 // token/2915
+itob
+concat
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+_reacha_owner:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:208:10:property binding
+callsub l2_LF_svsLoad_4
+load 27 // Deployer/2913
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+_reacha_stopContract:
+byte base64(AAAAAAAAAAACAAAAAAAAAAA=)
+store 11 // v4174
+b _reachi_3
+_reacha_token:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:207:10:property binding
+callsub l2_LF_svsLoad_4
+load 25 // token/2915
+itob
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+_reacha_tracker:
+load 1 // GV_currentStep :: UInt
+int 4
+==
+assert
+// ^ Claim: Incorrect state: not leaf
+// at ./index.rsh:210:12:property binding
+callsub l2_LF_svsLoad_4
+load 15 // tokenInfos/2957
+extract 0 17
+extract 0 8
+load 24 // price/2916
+itob
+concat
+store 4 // GV_apiRet :: Null
+b apiReturn_check
+_reachi_0:
+txn Sender
+store 27 // Deployer/2913
+load 11 // v4168
+int 0
+extract_uint64
+store 12 // v4167
+load 11 // v4168
+int 8
+extract_uint64
+store 26 // totalSupply/2914
+load 11 // v4168
+int 16
+extract_uint64
+store 25 // token/2915
+load 11 // v4168
+int 24
+extract_uint64
+store 24 // price/2916
+load 11 // v4168
+int 32
+extract_uint64
+store 23 // decimals/2917
+load 11 // v4168
+extract 40 32
+store 22 // name/2918
+load 11 // v4168
+extract 72 8
+store 21 // symbol/2919
+byte base64(3Eq3oA==)
+load 12 // v4167
+itob
+concat
+load 26 // totalSupply/2914
+itob
+concat
+load 25 // token/2915
+itob
+concat
+load 24 // price/2916
+itob
+concat
+load 23 // decimals/2917
+itob
+concat
+load 22 // name/2918
+concat
+load 21 // symbol/2919
+concat
+load 11 // v4168
+extract 80 8
+concat
+log // up to 92 bytes
+// ^ log: "_reach_e0" [v4167,totalSupply/2914,token/2915,price/2916,decimals/2917,name/2918,symbol/2919,Parent/2920] "_reach_e0(uint64,uint64,uint64,uint64,uint64,byte[32],byte[8],uint64)"
+load 12 // v4167
+callsub l3_LF_timeCheck
+int 17
+bzero
+dup
+store 11 // tokInfos/2888
+dup
+extract 0 17
+int 8
+bzero
+replace2 0
+replace2 0
+store 13 // tokInfos'/2925
+load 26 // totalSupply/2914
+int 0
+>
+assert
+// ^ Claim: Supply must be greater than 0
+// at reach standard library:57:5:application
+// at ./index.rsh:219:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+load 24 // price/2916
+int 18446744073709551615
+<
+assert
+// ^ Claim: Price Too Large
+// at reach standard library:57:5:application
+// at ./index.rsh:220:12:application call to "check" (defined at: reach standard library:49:32:function exp)
+int 100000
+callsub l1_LF_mbrAdd
+int 0
+// resource: R_Asset
+load 25 // token/2915
+global CurrentApplicationAddress
+callsub l4_LF_makeTxn_False_False_True_True
+l5_LF_svsDump_1:
+load 27 // Deployer/2913
+load 26 // totalSupply/2914
+itob
+concat
+load 25 // token/2915
+itob
+concat
+load 24 // price/2916
+itob
+concat
+load 23 // decimals/2917
+itob
+concat
+load 22 // name/2918
+concat
+load 21 // symbol/2919
+concat
+load 13 // tokInfos'/2925
+concat
+int 25
+bzero
+concat
+int 1
+global Round
+b updateStateNoOp
+_reachi_1:
+int 1
+load 1 // GV_currentStep :: UInt
+==
+assert
+l6_LF_svsLoad_1:
+dup
+extract 0 32
+store 27 // Deployer/2913
+dup
+int 32
+extract_uint64
+store 26 // totalSupply/2914
+dup
+int 40
+extract_uint64
+store 25 // token/2915
+dup
+int 48
+extract_uint64
+store 24 // price/2916
+dup
+int 56
+extract_uint64
+store 23 // decimals/2917
+dup
+extract 64 32
+store 22 // name/2918
+dup
+extract 96 8
+store 21 // symbol/2919
+extract 104 17
+store 13 // tokInfos'/2925
+load 11 // v4171
+btoi
+store 12 // v4170
+byte base64(1RUZFA==)
+load 12 // v4170
+itob
+concat
+log // up to 12 bytes
+// ^ log: "_reach_e1" [v4170] "_reach_e1(uint64)"
+load 12 // v4170
+callsub l3_LF_timeCheck
+load 13 // tokInfos'/2925
+extract 0 17
+store 12 // tokInfo/2935
+load 13 // tokInfos'/2925
+load 12 // tokInfo/2935
+dup
+int 0
+extract_uint64
+load 26 // totalSupply/2914
++
+itob
+replace2 0
+replace2 0
+store 11 // tokInfos'/2940
+load 26 // totalSupply/2914
+load 25 // token/2915
+l7_LF_checkTxn_True:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 3
+gtxns AssetReceiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int axfer
+==
+assert
+gtxns XferAsset
+uncover 2
+==
+assert
+gtxns AssetAmount
+==
+assert
+// ^ CheckPay
+// at ./index.rsh:228:5:dot
+load 27 // Deployer/2913
+txn Sender
+==
+assert
+// ^ Claim: sender correct
+// at ./index.rsh:228:5:dot
+int 1
+int 0
+load 11 // tokInfos'/2940
+extract 0 17
+int 0
+extract_uint64
+int 0
+global Round
+load 11 // tokInfos'/2940
+int 0
+store 14 // netBalance/2958
+store 15 // tokenInfos/2957
+store 16 // thisConsensusTime/2951
+store 17 // tokensOutOfContract/2950
+store 18 // tokensInContract/2948
+store 19 // halt/2947
+store 20 // contractShouldContinue/2946
+b _reachl_2
+_reachp_0:
+callsub l0_LF_wasntMeth
+int 100000
+callsub l1_LF_mbrAdd
+txna ApplicationArgs 1
+store 11 // v4168
+b _reachi_0
+_reachp_1:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v4171
+b _reachi_1
+_reachp_3:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v4174
+b _reachi_3
+alloc:
+int 0
+txn GlobalNumUint
+==
+assert
+int 3
+txn GlobalNumByteSlice
+==
+assert
+int 0
+txn LocalNumUint
+==
+assert
+int 0
+txn LocalNumByteSlice
+==
+assert
+callsub l0_LF_wasntMeth
+int 146
+bzero
+int 0
+int 0
+b updateStateNoOp
+balance___uint64Xqm1v5_4ak68Y_c_1sKRyuTCxNgsknAGuPx5pKiRdIA_:
+b _reacha_balance
+halt__void4NgR4Ybkk_p9THAAGm3x_lYv38HaTzOzmW6ULlLSkXs_:
+b _reacha_halt
+halted__byteyJoHnOfq7bztQWQ0jDxWnrorBuw_dLysB1my2xEadKE_:
+b _reacha_halted
+l10_stopContract0_2266:
+b _api_stopContract3
+l13_ifF:
+load 15 // tokenInfos/2957
+extract 0 17
+int 0
+extract_uint64
+// resource: R_Asset
+load 25 // token/2915
+// resource: R_Account
+load 27 // Deployer/2913
+callsub l4_LF_makeTxn_False_False_True_True
+load 14 // netBalance/2958
+load 27 // Deployer/2913
+callsub l12_LF_makeTxn_False_False_False_True
+// resource: R_Account
+int 0
+load 25 // token/2915
+global CurrentApplicationAddress
+global CreatorAddress
+callsub l15_LF_makeTxn_False_True_True_True
+updateStateHalt:
+txn OnCompletion
+int DeleteApplication
+==
+assert
+// checked on completion
+callsub l16_LF_updateMbr
+// resource: R_Account
+global CurrentApplicationAddress
+balance
+global CurrentApplicationAddress
+min_balance
+-
+l17_getActualBalance:
+dup
+store 6 // GV_mbrAdd :: UInt
+global CurrentApplicationAddress
+callsub l12_LF_makeTxn_False_False_False_True
+b updateState
+l18_LF_makeTxnK_False_True:
+int 0
+itxn_field Fee
+int pay
+itxn_field TypeEnum
+itxn_field Receiver
+itxn_field Amount
+itxn_submit
+retsub
+l19_LF_makeTxnK_True_True:
+int 0
+itxn_field Fee
+int axfer
+itxn_field TypeEnum
+itxn_field AssetReceiver
+itxn_field XferAsset
+itxn_field AssetAmount
+itxn_submit
+retsub
+l8_SecondaryBuy0_2266:
+b _api_SecondaryBuy3
+l9_halt0_2266:
+b _api_halt3
+meta___byte_32__niQ61IiQNtIpAucs6_KCK6ZgEgigFU5N5bZMvs6e9qg_:
+b _reacha_meta
+owner__addressYgr7y4BrUESHP0r0K1S9jEdSUmlYuVwvGyuSylzNEkY_:
+b _reacha_owner
+stopContract__byOqiRTZeJ7KYOfKs3ILrnZXX4rBFJZ_bFxeiE8wpe7jE_:
+b _reacha_stopContract
+token__uint64uya6CfUBrbRm0uCFdBQkWnkXu5jKpnjl2nKxjOCeW5M_:
+b _reacha_token
+tracker___uint64V84FTHjrPXhGDG9cDUhOEYPLf7D5ZlKlgiDibgUsHck_:
+b _reacha_tracker
+updateMbr_eq:
+pop
+retsub
+updateMbr_neg:
+swap
+-
+dup
+store 6 // GV_mbrAdd :: UInt
+global CreatorAddress
+callsub l12_LF_makeTxn_False_False_False_True
+retsub
+updateMbr_pos_eq:
+-
+dup
+bz updateMbr_eq
+dup
+store 6 // GV_mbrAdd :: UInt
+callsub l11_LF_checkTxn_False
+retsub
+l2_LF_svsLoad_4:
+dup
+extract 0 32
+store 27 // Deployer/2913
+dup
+int 32
+extract_uint64
+store 26 // totalSupply/2914
+dup
+int 40
+extract_uint64
+store 25 // token/2915
+dup
+int 48
+extract_uint64
+store 24 // price/2916
+dup
+int 56
+extract_uint64
+store 23 // decimals/2917
+dup
+extract 64 32
+store 22 // name/2918
+dup
+extract 96 8
+store 21 // symbol/2919
+dup
+extract 104 1
+btoi
+store 19 // halt/2947
+dup
+int 105
+extract_uint64
+store 18 // tokensInContract/2948
+dup
+int 113
+extract_uint64
+store 17 // tokensOutOfContract/2950
+dup
+extract 121 17
+store 15 // tokenInfos/2957
+int 138
+extract_uint64
+store 14 // netBalance/2958
+retsub
+l12_LF_makeTxn_False_False_False_True:
+itxn_begin
+b l18_LF_makeTxnK_False_True
+l0_LF_wasntMeth:
+int 1
+store 3 // GV_wasntMeth :: Bool
+retsub
+l4_LF_makeTxn_False_False_True_True:
+itxn_begin
+b l19_LF_makeTxnK_True_True
+l3_LF_timeCheck:
+dup
+int 0
+==
+swap
+load 2 // GV_currentTime :: UInt
+==
+||
+assert
+retsub
+l1_LF_mbrAdd:
+load 6 // GV_mbrAdd :: UInt
++
+store 6 // GV_mbrAdd :: UInt
+retsub
+l16_LF_updateMbr:
+load 6 // GV_mbrAdd :: UInt
+load 7 // GV_mbrSub :: UInt
+dup2
+>=
+bz updateMbr_neg
+b updateMbr_pos_eq
+l11_LF_checkTxn_False:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 2
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int pay
+==
+assert
+gtxns Amount
+==
+assert
+retsub
+l15_LF_makeTxn_False_True_True_True:
+itxn_begin
+itxn_field AssetCloseTo
+b l19_LF_makeTxnK_True_True

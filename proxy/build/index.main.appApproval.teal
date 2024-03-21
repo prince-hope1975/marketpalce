@@ -1,0 +1,411 @@
+#pragma version 8
+// resource: R_Txn
+txn ApplicationID
+bz alloc
+byte base64()
+app_global_get
+dup
+int 0
+extract_uint64
+store 1 // GV_currentStep :: UInt
+int 8
+extract_uint64
+store 2 // GV_currentTime :: UInt
+byte base64()
+preamble:
+pushbytess base64(Kledow==) base64(LAnzpQ==) base64(Z3pR8g==) base64(hxDEcQ==) base64(riJOLA==) base64(wZStmQ==) base64(5GlqZQ==)
+txna ApplicationArgs 0
+match created__uint64_19niyizUyi6bJ58_VvNA0CWVqZspWHmZ8lzeK8wbp4A_ end__voidxk_wYBBWYyH1AYVX66piAK_8euPjgbA5sV4J4_jegC4_ listed__uint64_uQtotDxZPFPd4ENbdyeq5wsWvHwcTLxG0MWlV8olnOBY_ _reachp_2 deleted__uint64_W8f1q4OT0rWlcL_d2s5GkSbQKUQiUddsH6puzYJ7Saw_ _reachp_0 removed__uint64_MSn3uwwl4KtInK4VKKgZuCkXr5kRr1jgGzKVsbQJz7U_
+errl:
+err
+_api_created2:
+load 13 // .fork39.msg/653
+extract 1 112
+store 11 // obj_info/685
+byte base64(gxibWw==)
+load 11 // obj_info/685
+concat
+log // up to 116 bytes
+// ^ log: "E_created" [obj_info/685] "E_created((uint64,address,uint64,byte[32],uint64,byte[8],uint64,uint64))"
+byte base64()
+store 11 // v695
+byte base64(AAAAAAAAArc=)
+load 11 // v695
+concat
+log // up to 8 bytes
+load 11 // v695
+store 4 // GV_apiRet :: Null
+int 1
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+_reachl_1:
+load 15 // isTrue/497
+bz l9_ifF
+l10_LF_svsDump_3:
+byte base64()
+int 3
+global Round
+updateStateNoOp:
+store 2 // GV_currentTime :: UInt
+store 1 // GV_currentStep :: UInt
+pop
+byte base64()
+load 1 // GV_currentStep :: UInt
+itob
+load 2 // GV_currentTime :: UInt
+itob
+concat
+app_global_put
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+callsub l11_LF_updateMbr
+updateState:
+load 3 // GV_wasntMeth :: Bool
+bnz done
+apiReturn_noCheck:
+byte base64(FR98dQ==)
+load 4 // GV_apiRet :: Null
+concat
+log // up to 4 bytes
+done:
+int 1
+return
+_api_deleted2:
+load 13 // .fork39.msg/653
+extract 1 112
+store 11 // obj_info/860
+byte base64(j79c7w==)
+load 11 // obj_info/860
+concat
+log // up to 116 bytes
+// ^ log: "E_deleted" [obj_info/860] "E_deleted((uint64,address,uint64,byte[32],uint64,byte[8],uint64,uint64))"
+byte base64()
+store 11 // v870
+byte base64(AAAAAAAAA2Y=)
+load 11 // v870
+concat
+log // up to 8 bytes
+load 11 // v870
+store 4 // GV_apiRet :: Null
+int 1
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+b _reachl_1
+_api_end2:
+byte base64()
+store 11 // v1035
+byte base64(AAAAAAAABAs=)
+load 11 // v1035
+concat
+log // up to 8 bytes
+load 11 // v1035
+store 4 // GV_apiRet :: Null
+int 0
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+b _reachl_1
+_api_listed2:
+load 13 // .fork39.msg/653
+extract 1 120
+store 11 // obj_info/1191
+byte base64(jW0kbA==)
+load 11 // obj_info/1191
+concat
+log // up to 124 bytes
+// ^ log: "E_listed" [obj_info/1191] "E_listed((uint64,uint64,address,uint64,byte[32],uint64,byte[8],uint64,uint64))"
+byte base64()
+store 11 // v1202
+byte base64(AAAAAAAABLI=)
+load 11 // v1202
+concat
+log // up to 8 bytes
+load 11 // v1202
+store 4 // GV_apiRet :: Null
+int 1
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+b _reachl_1
+_api_removed2:
+load 13 // .fork39.msg/653
+extract 1 120
+store 11 // obj_info/1368
+byte base64(RFG0Gg==)
+load 11 // obj_info/1368
+concat
+log // up to 124 bytes
+// ^ log: "E_removed" [obj_info/1368] "E_removed((uint64,uint64,address,uint64,byte[32],uint64,byte[8],uint64,uint64))"
+byte base64()
+store 11 // v1379
+byte base64(AAAAAAAABWM=)
+load 11 // v1379
+concat
+log // up to 8 bytes
+load 11 // v1379
+store 4 // GV_apiRet :: Null
+int 1
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+b _reachl_1
+_reacha_created:
+int 8
+bzero
+byte base64(AA==)
+load 11 // v1868
+concat
+int 8
+bzero
+concat
+concat
+store 11 // v1900
+_reachi_2:
+int 3
+load 1 // GV_currentStep :: UInt
+==
+assert
+l3_LF_svsLoad_3:
+load 11 // v1900
+int 0
+extract_uint64
+store 12 // v1899
+load 11 // v1900
+extract 8 121
+store 13 // .fork39.msg/653
+byte base64(UJ0nsg==)
+load 12 // v1899
+itob
+concat
+load 13 // .fork39.msg/653
+concat
+log // up to 133 bytes
+// ^ log: "_reach_e2" [v1899,.fork39.msg/653] "_reach_e2(uint64,(byte,byte[120]))"
+load 12 // v1899
+callsub l2_LF_timeCheck
+load 13 // .fork39.msg/653
+int 0
+getbyte
+switch l4_created0_39 l5_deleted0_39 l6_end0_39 l7_listed0_39 l8_removed0_39
+b errl
+_reacha_deleted:
+int 8
+bzero
+byte base64(AQ==)
+load 11 // v1874
+concat
+int 8
+bzero
+concat
+concat
+store 11 // v1900
+b _reachi_2
+_reacha_end:
+byte base64(AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA)
+store 11 // v1900
+b _reachi_2
+_reacha_listed:
+int 8
+bzero
+byte base64(Aw==)
+load 11 // v1884
+concat
+concat
+store 11 // v1900
+b _reachi_2
+_reacha_removed:
+int 8
+bzero
+byte base64(BA==)
+load 11 // v1890
+concat
+concat
+store 11 // v1900
+b _reachi_2
+_reachi_0:
+load 11 // v1897
+btoi
+store 12 // v1896
+byte base64(gsRh/g==)
+load 12 // v1896
+itob
+concat
+log // up to 12 bytes
+// ^ log: "_reach_e0" [v1896] "_reach_e0(uint64)"
+load 12 // v1896
+callsub l2_LF_timeCheck
+int 1
+global Round
+store 14 // thisConsensusTime/498
+store 15 // isTrue/497
+b _reachl_1
+_reachp_0:
+callsub l0_LF_wasntMeth
+int 100000
+l1_LF_mbrAdd:
+load 6 // GV_mbrAdd :: UInt
++
+store 6 // GV_mbrAdd :: UInt
+txna ApplicationArgs 1
+store 11 // v1897
+b _reachi_0
+_reachp_2:
+callsub l0_LF_wasntMeth
+txna ApplicationArgs 1
+store 11 // v1900
+b _reachi_2
+alloc:
+int 0
+txn GlobalNumUint
+==
+assert
+int 1
+txn GlobalNumByteSlice
+==
+assert
+int 0
+txn LocalNumUint
+==
+assert
+int 0
+txn LocalNumByteSlice
+==
+assert
+callsub l0_LF_wasntMeth
+byte base64()
+int 0
+int 0
+b updateStateNoOp
+apiReturn_check:
+txn OnCompletion
+int NoOp
+==
+assert
+// checked on completion
+b apiReturn_noCheck
+created__uint64_19niyizUyi6bJ58_VvNA0CWVqZspWHmZ8lzeK8wbp4A_:
+txna ApplicationArgs 1
+store 11 // v1868
+b _reacha_created
+deleted__uint64_W8f1q4OT0rWlcL_d2s5GkSbQKUQiUddsH6puzYJ7Saw_:
+txna ApplicationArgs 1
+store 11 // v1874
+b _reacha_deleted
+end__voidxk_wYBBWYyH1AYVX66piAK_8euPjgbA5sV4J4_jegC4_:
+b _reacha_end
+l12_getActualBalance:
+dup
+store 6 // GV_mbrAdd :: UInt
+global CurrentApplicationAddress
+callsub l13_LF_makeTxn_False_False_False_True
+b updateState
+l14_LF_makeTxnK_False_True:
+int 0
+itxn_field Fee
+int pay
+itxn_field TypeEnum
+itxn_field Receiver
+itxn_field Amount
+itxn_submit
+retsub
+l4_created0_39:
+b _api_created2
+l5_deleted0_39:
+b _api_deleted2
+l6_end0_39:
+b _api_end2
+l7_listed0_39:
+b _api_listed2
+l8_removed0_39:
+b _api_removed2
+l9_ifF:
+updateStateHalt:
+txn OnCompletion
+int DeleteApplication
+==
+assert
+// checked on completion
+callsub l11_LF_updateMbr
+// resource: R_Account
+global CurrentApplicationAddress
+balance
+global CurrentApplicationAddress
+min_balance
+-
+b l12_getActualBalance
+listed__uint64_uQtotDxZPFPd4ENbdyeq5wsWvHwcTLxG0MWlV8olnOBY_:
+txna ApplicationArgs 1
+store 11 // v1884
+b _reacha_listed
+removed__uint64_MSn3uwwl4KtInK4VKKgZuCkXr5kRr1jgGzKVsbQJz7U_:
+txna ApplicationArgs 1
+store 11 // v1890
+b _reacha_removed
+updateMbr_eq:
+pop
+retsub
+updateMbr_neg:
+swap
+-
+dup
+store 6 // GV_mbrAdd :: UInt
+global CreatorAddress
+callsub l13_LF_makeTxn_False_False_False_True
+retsub
+updateMbr_pos_eq:
+-
+dup
+bz updateMbr_eq
+dup
+store 6 // GV_mbrAdd :: UInt
+l15_LF_checkTxn_False:
+// resource: R_Txn
+txn GroupIndex
+load 0 // GV_txnCounter :: UInt
+int 1
++
+dup
+store 0 // GV_txnCounter :: UInt
+-
+dupn 2
+gtxns Receiver
+global CurrentApplicationAddress
+==
+assert
+gtxns TypeEnum
+int pay
+==
+assert
+gtxns Amount
+==
+assert
+retsub
+l0_LF_wasntMeth:
+int 1
+store 3 // GV_wasntMeth :: Bool
+retsub
+l2_LF_timeCheck:
+dup
+int 0
+==
+swap
+load 2 // GV_currentTime :: UInt
+==
+||
+assert
+retsub
+l13_LF_makeTxn_False_False_False_True:
+itxn_begin
+b l14_LF_makeTxnK_False_True
+l11_LF_updateMbr:
+load 6 // GV_mbrAdd :: UInt
+load 7 // GV_mbrSub :: UInt
+dup2
+>=
+bz updateMbr_neg
+b updateMbr_pos_eq
